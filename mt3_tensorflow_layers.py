@@ -18,7 +18,7 @@ class Mt3_Encoder_Layer(tf.keras.Model):
 
         self.mlp = keras.Sequential(
                     [
-                        layers.Dense(feed_forward_dim, use_bias=False),#, activation='relu'
+                        layers.Dense(feed_forward_dim, use_bias=False),#, activation='gelu'
                         layers.Dense(embed_dim, use_bias=False),
                     ]
                 )
@@ -138,7 +138,7 @@ class Mt3_Encoder_Layer_3fc(tf.keras.Model):
 
         self.pre_mlp_layer_norm = layers.LayerNormalization(epsilon=1e-6, name='pre_mlp_layer_norm', scale=False)
 
-        self.mlp_wi_0=layers.Dense(feed_forward_dim, use_bias=False)#, activation='relu'
+        self.mlp_wi_0=layers.Dense(feed_forward_dim, use_bias=False)#, activation='gelu'
         self.mlp_wi_1=layers.Dense(feed_forward_dim, use_bias=False)
         self.mlp_wo=layers.Dense(embed_dim, use_bias=False)
 
@@ -247,7 +247,7 @@ class Mt3_Decoder_Layer_3fc(tf.keras.Model):
 
         self.pre_mlp_layer_norm = layers.LayerNormalization(epsilon=1e-6, name='pre_mlp_layer_norm', scale=False)
 
-        self.mlp_wi_0=layers.Dense(feed_forward_dim, use_bias=False)#, activation='relu'
+        self.mlp_wi_0=layers.Dense(feed_forward_dim, use_bias=False)#, activation='gelu'
         self.mlp_wi_1=layers.Dense(feed_forward_dim, use_bias=False)
         self.mlp_wo=layers.Dense(embed_dim, use_bias=False)
 
